@@ -1,3 +1,6 @@
+-- Stephen fitzsimon
+-- anomaly project sql query
+
 use curriculum_logs;
 
 -- This is the right sql query
