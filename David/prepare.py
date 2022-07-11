@@ -83,7 +83,7 @@ def summarize(df):
         if col in cat_cols:
             print(df[col].value_counts())
         else:
-            print(df[col].value_counts(bins=10, sort=False))
+            print(df[col].value_counts(bins=10, sort=True))
     print('=====================================================')
     print('nulls in dataframe by column: ')
     print(nulls_by_col(df))
