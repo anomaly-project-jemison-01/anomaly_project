@@ -39,4 +39,5 @@ def get_curriculum_data(query_sql = False):
 def prepare_datetime_col(df):
     df['timestamp'] = df['date'] + ' ' + df['time']
     df['timestamp'] = pd.to_datetime(df['timestamp'])
-    return df.drop(columns = ['date', 'time', 'program_id'])
+    return df
+
