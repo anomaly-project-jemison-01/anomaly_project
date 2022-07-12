@@ -40,3 +40,32 @@ def prepare_datetime_col(df):
     df['timestamp'] = df['date'] + ' ' + df['time']
     df['timestamp'] = pd.to_datetime(df['timestamp'])
     return df.drop(columns = ['date', 'time', 'program_id'])
+
+def q5_wrangle(old_df):
+    df5 = old_df.copy()
+    #drop staff access
+    df5 = df5[df5.name != 'Staff']
+    #drop unknown cohorts
+    df5 = df5[~df5.name.isna()]
+    #convert date to datetime format
+    df5['date'] = pd.to_datetime(df5['date'],format='%Y-%m-%d')
+    df5['end_date'] = pd.to_datetime(df5['end_date'],format='%Y-%m-%d')
+    #only look at currently active students
+    df5 = df5[df5['date'] <= df5['end_date']]
+    return df5
+
+def q6_wrangle(old_df):
+    df = old_df.copy()
+    #Convert these columns to datetimes
+    df['date'] = pd.to_datetime(df['date'],format='%Y-%m-%d')
+    df['start_date'] = pd.to_datetime(df['start_date'],format='%Y-%m-%d')
+    df['end_date'] = pd.to_datetime(df['end_date'],format='%Y-%m-%d')
+    #filter dataset down to just post-graduation visits
+    df = df[df.date > df.end_date]
+    #get a days after graduation column
+    df['days_post_grad'] = (df['date'] - df['end_date']).astype('timedelta64[D]')
+    #drop entry points ('/','index.html' and 'search/search_index.json')
+    df = df[(df.path != '/') & (df.path != 'search/search_index.json') & (df.path != 'index.html')]
+    #also drop images
+    df = df[~(df.path.str.endswith('.jpg')) & ~(df.path.str.endswith('.jpeg')) & ~(df.path.str.endswith('.svg'))]
+    return df
