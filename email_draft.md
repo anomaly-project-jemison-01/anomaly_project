@@ -1,12 +1,12 @@
 Dear manager, 
 
 We have found the following highlights for the data
-- There is some suspicious activity of web scrapers and unidnentified users
+- There is some suspicious activity of web scrapers and unidentified users
 - The most accessed lesson was Javascript I and the least accessed is K means testing
 - Grads continue to access Javascript I and MySQL lessons
 - There is evidence of cross curriculum traffic
 
-Below are more detailed answers to your questions.  Please let us know if there are any other questions you have.
+Below are more detailed answers to your questions, in addition to the attached google slide and final notebook called Report.  Please let us know if there are any other questions you have.
 
 Thanks, 
 Cayt S., David M., Eriberto C. and Stephen F.
